@@ -50,7 +50,7 @@ IngrListTest.add("ingr5");
 List<RecipeDTO> testOutput= new ArrayList<>();
   RecipeDTO recTestResponse= new RecipeDTO(); 
   
-  recTestResponse.setId(1);
+  recTestResponse.setId(1L);
   recTestResponse.setRecName("Test");
   recTestResponse.setRecDate(tempDate);
   recTestResponse.setRecType(true);
@@ -61,7 +61,7 @@ List<RecipeDTO> testOutput= new ArrayList<>();
 
     List<Recipe> recipeOutList= new ArrayList<Recipe>();
 	Recipe recipeOutput = new Recipe();
-	recipeOutput.setId(1);
+	recipeOutput.setId(1L);
 	recipeOutput.setRecName("Test");
 	recipeOutput.setRecDate(tempDate);
 	recipeOutput.setRecType(true);
@@ -81,7 +81,7 @@ List<RecipeDTO> testOutput= new ArrayList<>();
 	@Test
 	@Order(2)
 	void testGetRecipe() {
-		int id=1;
+		Long id=1L;
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy' 'HH:mm");
 		LocalDateTime tempDate = LocalDateTime.parse("26-08-2021 10:14", formatter);
 		
@@ -93,7 +93,7 @@ List<RecipeDTO> testOutput= new ArrayList<>();
 		IngrListTest.add("ingr5");
 		
 		   Recipe recipeOutput = new Recipe();
-					recipeOutput.setId(1);
+					recipeOutput.setId(1L);
 				    recipeOutput.setRecName("Test");
 					recipeOutput.setRecDate(tempDate);
 					recipeOutput.setRecType(true);
@@ -102,7 +102,7 @@ List<RecipeDTO> testOutput= new ArrayList<>();
 					recipeOutput.setRecInstruction("test"); 			
 		
 		RecipeDTO recTestResponse= new RecipeDTO(); 
-		  recTestResponse.setId(1);
+		  recTestResponse.setId(1L);
 		  recTestResponse.setRecName("Test");
 		  recTestResponse.setRecDate(tempDate);
 		  recTestResponse.setRecType(true);
@@ -148,7 +148,7 @@ List<RecipeDTO> testOutput= new ArrayList<>();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy' 'HH:mm");
 		LocalDateTime tempDate = LocalDateTime.parse("26-08-2021 10:14", formatter);
 		Recipe recUpdate = new Recipe();
-		recUpdate.setId(1);
+		recUpdate.setId(1L);
 		recUpdate.setRecName("Testupdate");
 		recUpdate.setRecDate(tempDate);
 		recUpdate.setRecType(false);
@@ -164,8 +164,8 @@ List<RecipeDTO> testOutput= new ArrayList<>();
 	@Test
 	@Order(5)
 	void testDeleteRecipe() {
-		recServTest.deleteRecipe(2);
-		verify(recDaoTest,times(1)).deleteRecipe(2);
+		recServTest.deleteRecipe(2L);
+		verify(recDaoTest,times(1)).deleteRecipe(2L);
 	
 	}
 

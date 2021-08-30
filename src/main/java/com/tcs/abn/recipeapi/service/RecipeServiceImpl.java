@@ -48,7 +48,7 @@ public class RecipeServiceImpl implements RecipeServiceInterface {
 	}
 	
 	@Override
-	public RecipeDTO getRecipe(int id) {
+	public RecipeDTO getRecipe(Long id) {
 		log.info("Invoked getRecipe service");	
 		Recipe recipe = recDao.getRecipe(id);
 		RecipeDTO recResponse= new RecipeDTO();
@@ -81,7 +81,7 @@ public class RecipeServiceImpl implements RecipeServiceInterface {
 	}
 
 	@Override
-	public void deleteRecipe(int id) {
+	public void deleteRecipe(Long id) {
 		log.info("Invoked deleteRecipe service");
 		recDao.deleteRecipe(id);
 

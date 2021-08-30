@@ -56,7 +56,7 @@ class RecipeDaoImplTest {
 		List<RecipeDTO> testOutput = new ArrayList<>();
 		RecipeDTO recTestResponse = new RecipeDTO();
 
-		recTestResponse.setId(1);
+		recTestResponse.setId(1L);
 		recTestResponse.setRecName("Test");
 		recTestResponse.setRecDate(tempDate);
 		recTestResponse.setRecType(true);
@@ -67,7 +67,7 @@ class RecipeDaoImplTest {
 
 		List<Recipe> recipeOutList = new ArrayList<Recipe>();
 		Recipe recipeOutput = new Recipe();
-		recipeOutput.setId(1);
+		recipeOutput.setId(1L);
 		recipeOutput.setRecName("Test");
 		recipeOutput.setRecDate(tempDate);
 		recipeOutput.setRecType(true);
@@ -88,7 +88,7 @@ class RecipeDaoImplTest {
 	  @Order(7)
 	  void testGetRecipe() { 
 		  
-	  int id=1; 
+	  Long id=1L; 
 	  DateTimeFormatter formatter =	DateTimeFormatter.ofPattern("dd-MM-yyyy' 'HH:mm"); 
 	  LocalDateTime tempDate = LocalDateTime.parse("26-08-2021 10:14", formatter);
 	  
@@ -99,7 +99,7 @@ class RecipeDaoImplTest {
 			 */
 	 
 	   Recipe recipeOutput= new Recipe();
-	  recipeOutput.setId(1); 
+	  recipeOutput.setId(1L); 
 	  recipeOutput.setRecName("Test");
 	  recipeOutput.setRecDate(tempDate); 
 	  recipeOutput.setRecType(true);
@@ -160,7 +160,7 @@ class RecipeDaoImplTest {
 		  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy' 'HH:mm"); LocalDateTime tempDate =
 	  LocalDateTime.parse("26-08-2021 10:14", formatter); 
 		  Recipe recUpdate = new  Recipe();
-		  recUpdate.setId(1); 
+		  recUpdate.setId(1L); 
 		  recUpdate.setRecName("Testupdate");
 	  recUpdate.setRecDate(tempDate); 
 	  recUpdate.setRecType(false);
@@ -176,8 +176,8 @@ class RecipeDaoImplTest {
 	  @Order(10) 
 	  void testDeleteRecipe() {
 	  
-	  recDaoTest.deleteRecipe(1); 
-	  verify(recRepository,times(1)).deleteById(1);
+	  recDaoTest.deleteRecipe(1L); 
+	  verify(recRepository,times(1)).deleteById(1L);
 	  }
 	 
 	 

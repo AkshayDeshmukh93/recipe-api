@@ -9,13 +9,13 @@ public interface RecipeDaoInterface {
 	
 	public List<Recipe> getAllRecipe();
 	
-	public  Recipe getRecipe(int id);
+	public  Recipe getRecipe(Long id);
 	
 	public void addRecipe(Recipe recipe);
 	
 	public void updateRecipe(Recipe recipe);
 	
-	public void deleteRecipe(int id);
+	public void deleteRecipe(Long id);
 	
 
 }

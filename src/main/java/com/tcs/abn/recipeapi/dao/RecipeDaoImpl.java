@@ -31,8 +31,9 @@ public class RecipeDaoImpl implements RecipeDaoInterface {
 	}
 	
 	@Override
-	public Recipe getRecipe(int id) {
-		log.info("Invoked getRecipe RepositoryDao");	 
+	public Recipe getRecipe(Long id) {
+		log.info("Invoked getRecipe RepositoryDao");
+		
 		return recRepository.findById(id).get();
 		
 	}
@@ -51,8 +52,9 @@ public class RecipeDaoImpl implements RecipeDaoInterface {
 	}
 
 	@Override
-	public void deleteRecipe(int id) {
+	public void deleteRecipe(Long id) {
 		log.info("Invoked deleteRecipe RepositoryDao");
+		
 		recRepository.deleteById(id);
 	}
 

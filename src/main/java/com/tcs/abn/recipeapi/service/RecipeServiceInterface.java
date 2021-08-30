@@ -8,11 +8,11 @@ public interface RecipeServiceInterface {
 
 	public List<RecipeDTO> getAllRecipe();
 
-	public  RecipeDTO getRecipe(int id);
+	public  RecipeDTO getRecipe(Long id);
 	
 	public void addRecipe(Recipe recipe);
 	
 	public void updateRecipe(Recipe recipe);
 	
-	public void deleteRecipe(int id);
+	public void deleteRecipe(Long id);
 }

@@ -9,7 +9,7 @@ public class RecipeDTO {
 		
 	}
 	
-	private int id;
+	private Long id;
 	private String recName;
 	private LocalDateTime recDate;
 	private boolean recType;
@@ -17,10 +17,10 @@ public class RecipeDTO {
 	
 	private List<String> recIngredients;
 	private String recInstruction;
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getRecName() {

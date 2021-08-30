@@ -63,7 +63,7 @@ class RecipeControllerTest {
 		List<RecipeDTO> testOutput= new ArrayList<>();
 		  RecipeDTO recTestResponse= new RecipeDTO(); 
 		  
-		  recTestResponse.setId(1);
+		  recTestResponse.setId(1L);
 		  recTestResponse.setRecName("Test");
 		  recTestResponse.setRecDate(tempDate);
 		  recTestResponse.setRecType(true);
@@ -77,12 +77,12 @@ class RecipeControllerTest {
 		  mockMvc.perform(get("/rest/recipe"))
 		  .andExpect(status().isOk())
 		  .andExpect(jsonPath("$", Matchers.hasSize(1)))
-		  .andExpect(jsonPath("$[0].id", Matchers.is(recTestResponse.getId())));
+		  .andExpect(jsonPath("$[0].id", Matchers.is(recTestResponse.getId().intValue())));
 		
 	}
 
 	 @Test void testGetRecipe() throws Exception { 
-		 int id=1;
+		 Long id=1L;
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy' 'HH:mm");
 			LocalDateTime tempDate = LocalDateTime.parse("26-08-2021 10:14", formatter);
 			
@@ -94,7 +94,7 @@ class RecipeControllerTest {
 			IngrListTest.add("ingr5");
 			
 			RecipeDTO recTestResponse= new RecipeDTO(); 
-			  recTestResponse.setId(1);
+			  recTestResponse.setId(1L);
 			  recTestResponse.setRecName("Test");
 			  recTestResponse.setRecDate(tempDate);
 			  recTestResponse.setRecType(true);
@@ -106,7 +106,7 @@ class RecipeControllerTest {
 			
 			  mockMvc.perform(get("/rest/recipe/1"))
 			  .andExpect(status().isOk())
-			  .andExpect(jsonPath("id", Matchers.is(recTestResponse.getId())));
+			  .andExpect(jsonPath("id", Matchers.is(recTestResponse.getId().intValue())));
 			  
 	 }
 	 
@@ -130,7 +130,7 @@ class RecipeControllerTest {
 				            .accept(MediaType.APPLICATION_JSON)
 				            .content(this.mapper.writeValueAsString(addRecipe));
 				 
-				 mockMvc.perform(req).andExpect(status().isOk());
+				 mockMvc.perform(req).andExpect(status().isCreated());
 	 }
 		/*
 		 * @Test void testAddRecipe() throws Exception {
@@ -156,9 +156,9 @@ class RecipeControllerTest {
 		 * .contentType(MediaType.APPLICATION_JSON) .content(recipeOutput.toString()))
 		 * .andExpect(status().isOk()); }
 		 */
-	 @Test void testDeleteRecipe() throws Exception { 
-		 mockMvc.perform(delete("/rest/deleteRecipe/1"))
-		  .andExpect(status().isOk());
+	 @Test 
+	 void testDeleteRecipe() throws Exception { 
+		mockMvc.perform(delete("/rest/deleteRecipe/2")).andExpect(status().isOk());
 		 
 		 
 	 }
@@ -168,7 +168,7 @@ class RecipeControllerTest {
 					 LocalDateTime.parse("26-08-2021 10:14", formatter);
 					  
 					 Recipe addRecipe = new Recipe();
-					 addRecipe.setId(1);
+					 addRecipe.setId(1L);
 					 addRecipe.setRecName("TestUpdate"); 
 					 addRecipe.setRecDate(tempDate);
 					 addRecipe.setRecType(true); 
@@ -184,5 +184,45 @@ class RecipeControllerTest {
 					 
 					 mockMvc.perform(req).andExpect(status().isOk());
 	  }
+	  
+	  @Test void getAllRecipeNotFoundTest() throws Exception{
+			
+			  List<RecipeDTO> testOutput= new ArrayList<>();
+			  when(recServTest.getAllRecipe()).thenReturn(testOutput);
+			  mockMvc.perform(get("/rest/recipe")) .andExpect(status().isNotFound());
+			 
+	  }	 	 
+	  
+	  @Test 
+	  void testGetRecipeNotFound() throws Exception {
+			  mockMvc.perform(get("/rest/recipe/6")) 
+			  .andExpect(status().isBadRequest());
+	  }
+			  
+	  
+	  @Test void testUpdateRecipeNotFound() throws Exception { 
+		  DateTimeFormatter formatter =
+					 DateTimeFormatter.ofPattern("dd-MM-yyyy' 'HH:mm"); 
+		  LocalDateTime tempDate = LocalDateTime.parse("26-08-2021 10:14", formatter);
+					  
+					 Recipe addRecipe = new Recipe();
+					 addRecipe.setId(null);
+					 addRecipe.setRecName("TestUpdate"); 
+					 addRecipe.setRecDate(tempDate);
+					 addRecipe.setRecType(true); 
+					 addRecipe.setRecCount(2);
+					 addRecipe.setRecIngredients("ingr1,ingr2,ingr3,ing4,ingr5");
+					 addRecipe.setRecInstruction("test");
+			 
+					 
+					 RequestBuilder req= MockMvcRequestBuilders
+							 .put("/rest/updaterecipe").contentType(MediaType.APPLICATION_JSON)
+					            .accept(MediaType.APPLICATION_JSON)
+					            .content(this.mapper.writeValueAsString(addRecipe));
+					 
+					 mockMvc.perform(req).andExpect(status().isNotFound());
+	  }
+	  
 	 
+			  
 }

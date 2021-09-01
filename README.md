@@ -12,7 +12,7 @@ This Project is developed to manage favorite recipes.This contains an api's to s
 	4. How many people the dish is suitable for
 	5. Recipe ingredients as list
 	6. Recipe cooking instructions
- * Creat a new recipe
+ * Create a new recipe
  * Update recipe
  * Delete recipe
  * Display single recipe

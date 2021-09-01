@@ -1,10 +1,10 @@
 
 # Recipe API Application
 
-This project contains rest api application created to mannage your recipes.
+This project contains rest api application created to mannage your favorite recipes.
 
 # About The Project
-This Project is developed to managed favorite recipes.This contains an api's to show and perform below actions:
+This Project is developed to manage favorite recipes.This contains an api's to show and perform below actions:
  * Show available recipes in with below details
 	i)Recipe id and Name
 	ii)Recipe created Date and Time		

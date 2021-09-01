@@ -6,12 +6,12 @@ This project contains rest api application created to mannage your favorite reci
 # About The Project
 This Project is developed to manage favorite recipes.This contains an api's to show and perform below actions:
  * Show available recipes in with below details
-	i)Recipe id and Name
-	ii)Recipe created Date and Time		
-	iii)Indicated for veg/non-veg/non-veg
-	iv)How many people the dish is suitable for
-	v)Recipe ingredients as list
-	vi)Recipe cooking instructions
+	1.Recipe id and Name
+	2.Recipe created Date and Time		
+	3.Indicated for veg/non-veg/non-veg
+	4.How many people the dish is suitable for
+	5.Recipe ingredients as list
+	6.Recipe cooking instructions
  * Creat a new recipe
  * Update recipe
  * Delete recipe

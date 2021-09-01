@@ -50,6 +50,6 @@ This project has build up with following frameworks and tools/technology used:
    API documention cab be find on link - http://localhost:8090/swagger-ui.html
    
 # RoadMap
-	Spring Security configuration is in progress. Rest API authentication code is commented and has to be debug as its working for sometime sometimes it's not working.
+	Spring Security configuration is in progress. Rest API authentication code is commented out and has to be debug as its working for sometime sometimes it's not working.
   
 

@@ -31,15 +31,16 @@ This project has build up with following frameworks and tools/technology used:
 # Getting Started
   ## Prerequisites
 	Following are the pre-requisites:
+	
 	* Spring Tool Suite IDE
 	* Postman
 
   ## Instllation
     
-	1.Clone Project from https://github.com/AkshayDeshmukh93/recipe-api.git 
-	2.In STS import project as File->Import->Maven->Existing Maven Project->Browse Project->Finish.
-	3.Build project and Run as java application 
-	4.Hit rest service in postman to perform actions
+	1. Clone Project from https://github.com/AkshayDeshmukh93/recipe-api.git 
+	2. In STS import project as File->Import->Maven->Existing Maven Project->Browse Project->Finish.
+	3. Build project and Run as java application 
+	4. Hit rest service in postman to perform actions
 	
   ## Link
    * Code Coverage 

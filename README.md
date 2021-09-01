@@ -29,26 +29,26 @@ This project has build up with following frameworks and tools/technology used:
  * Springboot validate
  
 # Getting Started
-  ##  Prerequisites
+  ## Prerequisites
 	Following are the pre-requisites:
 	* Spring Tool Suite IDE
 	* Postman
 
-  ##Instllation
+  ## Instllation
     
 	1.Clone Project from https://github.com/AkshayDeshmukh93/recipe-api.git 
 	2.In STS import project as File->Import->Maven->Existing Maven Project->Browse Project->Finish.
 	3.Build project and Run as java application 
 	4.Hit rest service in postman to perform actions
 	
-  ##Link
-   *Code Coverage 
+  ## Link
+   * Code Coverage 
    Code coverge of project cn be checked from index.html file present in project folder - recipe-api/target/site/jacoco/com.tcs.abn.recipeapi/index.html
   
-   *Open-Api
+   * Open-Api
    API documention cab be find on link - http://localhost:8090/swagger-ui.html
    
-#RoadMap
+# RoadMap
 	Spring Security configuration is in progress. Rest API authentication code is commented and has to be debug as its working for sometime sometimes it's not working.
   
 

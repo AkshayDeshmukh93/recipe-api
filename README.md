@@ -1,3 +1,4 @@
+
 # Recipe API Application
 
 This project contains rest api application created to mannage your recipes.
@@ -51,8 +52,3 @@ This project has build up with following frameworks and tools/technology used:
 	Spring Security configuration is in progress. Rest API authentication code is commented and has to be debug as its working for sometime sometimes it's not working.
   
 
-	
- 
- 
- 
- 

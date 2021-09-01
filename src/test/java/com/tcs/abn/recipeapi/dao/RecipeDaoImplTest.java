@@ -24,7 +24,6 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import com.tcs.abn.recipeapi.dto.RecipeDTO;
-import com.tcs.abn.recipeapi.entity.RecRepository;
 import com.tcs.abn.recipeapi.entity.Recipe;
 import com.tcs.abn.recipeapi.service.RecipeServiceImpl;
 

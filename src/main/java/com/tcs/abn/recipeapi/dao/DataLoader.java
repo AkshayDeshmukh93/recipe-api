@@ -1,4 +1,4 @@
-package com.tcs.abn.recipeapi.entity;
+package com.tcs.abn.recipeapi.dao;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -9,6 +9,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import com.tcs.abn.recipeapi.dto.RecipeDTO;
+import com.tcs.abn.recipeapi.entity.Recipe;
 
 @Component
 public class DataLoader implements ApplicationRunner {

@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -34,6 +35,7 @@ class RecipeServiceImplTest {
 	
 	@Test
 	@Order(1)
+	@DisplayName("Test GetAllRecipe service ")
 	void testGetAllRecipe() {
 
 		
@@ -80,6 +82,7 @@ List<RecipeDTO> testOutput= new ArrayList<>();
 	
 	@Test
 	@Order(2)
+	@DisplayName("Test GetRecipe service ")
 	void testGetRecipe() {
 		Long id=1L;
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy' 'HH:mm");
@@ -125,6 +128,7 @@ List<RecipeDTO> testOutput= new ArrayList<>();
 
 	@Test
 	@Order(3)
+	@DisplayName("Test addRecipe service ")
 	void testAddRecipe() {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy' 'HH:mm");
 		LocalDateTime tempDate = LocalDateTime.parse("26-08-2021 10:14", formatter);
@@ -144,6 +148,7 @@ List<RecipeDTO> testOutput= new ArrayList<>();
 	
 	@Test
 	@Order(4)
+	@DisplayName("Test UpdateRecipe service ")
 	void testUpdateRecipe() {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy' 'HH:mm");
 		LocalDateTime tempDate = LocalDateTime.parse("26-08-2021 10:14", formatter);
@@ -163,6 +168,7 @@ List<RecipeDTO> testOutput= new ArrayList<>();
 	
 	@Test
 	@Order(5)
+	@DisplayName("Test deleteRecipe service ")
 	void testDeleteRecipe() {
 		recServTest.deleteRecipe(2L);
 		verify(recDaoTest,times(1)).deleteRecipe(2L);

@@ -15,6 +15,7 @@ import java.util.List;
 
 import org.hamcrest.Matchers;
 import org.json.JSONObject;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +49,7 @@ class RecipeControllerTest {
 	
 
 	@Test
+	@DisplayName("Test GetAllRecipe GET service ")
 	void testGetAllRecipe() throws Exception {
 
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy' 'HH:mm");
@@ -81,7 +83,9 @@ class RecipeControllerTest {
 		
 	}
 
-	 @Test void testGetRecipe() throws Exception { 
+	 @Test 
+	 @DisplayName("Test GetRecipe GET service ")
+	 void testGetRecipe() throws Exception { 
 		 Long id=1L;
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy' 'HH:mm");
 			LocalDateTime tempDate = LocalDateTime.parse("26-08-2021 10:14", formatter);
@@ -110,7 +114,9 @@ class RecipeControllerTest {
 			  
 	 }
 	 
-	 @Test void testAddRecipe() throws Exception {
+	 @Test
+	 @DisplayName("Test AddRecipe POST service ")
+	 void testAddRecipe() throws Exception {
 		 DateTimeFormatter formatter =
 				 DateTimeFormatter.ofPattern("dd-MM-yyyy' 'HH:mm"); LocalDateTime tempDate =
 				 LocalDateTime.parse("26-08-2021 10:14", formatter);
@@ -156,13 +162,16 @@ class RecipeControllerTest {
 		 * .contentType(MediaType.APPLICATION_JSON) .content(recipeOutput.toString()))
 		 * .andExpect(status().isOk()); }
 		 */
-	 @Test 
+	 @Test
+	 @DisplayName("Test DeleteRecipe DELETE service ")
 	 void testDeleteRecipe() throws Exception { 
 		mockMvc.perform(delete("/rest/deleteRecipe/2")).andExpect(status().isOk());
 		 
 		 
 	 }
-	  @Test void testUpdateRecipe() throws Exception { 
+	  @Test 
+	  @DisplayName("Test UpdteRecipe PUT service")
+	  void testUpdateRecipe() throws Exception { 
 		  DateTimeFormatter formatter =
 					 DateTimeFormatter.ofPattern("dd-MM-yyyy' 'HH:mm"); LocalDateTime tempDate =
 					 LocalDateTime.parse("26-08-2021 10:14", formatter);
@@ -185,7 +194,9 @@ class RecipeControllerTest {
 					 mockMvc.perform(req).andExpect(status().isOk());
 	  }
 	  
-	  @Test void getAllRecipeNotFoundTest() throws Exception{
+	  @Test 
+	  @DisplayName("Test GetALLRecipe with Exception -GET service ")
+	  void getAllRecipeNotFoundTest() throws Exception{
 			
 			  List<RecipeDTO> testOutput= new ArrayList<>();
 			  when(recServTest.getAllRecipe()).thenReturn(testOutput);
@@ -194,13 +205,16 @@ class RecipeControllerTest {
 	  }	 	 
 	  
 	  @Test 
+	  @DisplayName("Test GetRecipe with Exception GET service ")
 	  void testGetRecipeNotFound() throws Exception {
 			  mockMvc.perform(get("/rest/recipe/6")) 
 			  .andExpect(status().isBadRequest());
 	  }
 			  
 	  
-	  @Test void testUpdateRecipeNotFound() throws Exception { 
+	  @Test 
+	  @DisplayName("Test UpdateRecipe with Exception PUT service ")
+	  void testUpdateRecipeNotFound() throws Exception { 
 		  DateTimeFormatter formatter =
 					 DateTimeFormatter.ofPattern("dd-MM-yyyy' 'HH:mm"); 
 		  LocalDateTime tempDate = LocalDateTime.parse("26-08-2021 10:14", formatter);

@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -40,6 +41,7 @@ class RecipeDaoImplTest {
 
 	@Test
 	@Order(6)
+	@DisplayName("Test GetAllRecipe DAO ")
 	void testGetAllRecipe() {
 
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy' 'HH:mm");
@@ -85,6 +87,7 @@ class RecipeDaoImplTest {
 	
 	  @Test 
 	  @Order(7)
+	  @DisplayName("Test GetRecipe DAO ")
 	  void testGetRecipe() { 
 		  
 	  Long id=1L; 
@@ -135,8 +138,9 @@ class RecipeDaoImplTest {
 
 	
 	  @Test
-	  
-	  @Order(8) void testAddRecipe() { DateTimeFormatter formatter =
+	  @Order(8) 
+	  @DisplayName("Test addRecipe DAO ")
+	  void testAddRecipe() { DateTimeFormatter formatter =
 	  DateTimeFormatter.ofPattern("dd-MM-yyyy' 'HH:mm"); 
 	  LocalDateTime tempDate =  LocalDateTime.parse("26-08-2021 10:14", formatter); 
 	  
@@ -155,6 +159,7 @@ class RecipeDaoImplTest {
 	  @Test
 	  
 	  @Order(9) 
+	  @DisplayName("Test updateRecipe DAO ")
 	  void testUpdateRecipe() { 
 		  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy' 'HH:mm"); LocalDateTime tempDate =
 	  LocalDateTime.parse("26-08-2021 10:14", formatter); 
@@ -171,8 +176,8 @@ class RecipeDaoImplTest {
 	  verify(recRepository,	  times(1)).save(recUpdate); }
 	  
 	  @Test
-	  
-	  @Order(10) 
+	  @Order(10)
+	  @DisplayName("Test deleteRecipe DAO ")
 	  void testDeleteRecipe() {
 	  
 	  recDaoTest.deleteRecipe(1L); 

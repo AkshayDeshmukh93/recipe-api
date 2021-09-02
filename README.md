@@ -22,7 +22,7 @@ This project has build up with following frameworks and tools/technology used:
  * Spring Boot
  * Restfull Service
  * Java
- * H2 as im-memory database
+ * H2 as in-memory database
  * Junit/Mockito
  * Spring Security framework(This part is in progress)
  * Open-Api(formally known as swagger) for Auto Configuration of API document

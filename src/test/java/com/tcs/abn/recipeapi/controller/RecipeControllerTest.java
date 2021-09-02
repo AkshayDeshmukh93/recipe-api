@@ -7,6 +7,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -76,7 +77,7 @@ class RecipeControllerTest {
 		  
 		 // when(recServiceTest.getAllRecipe()).thenReturn(testOutput);
 		  when(recServTest.getAllRecipe()).thenReturn(testOutput);
-		  mockMvc.perform(get("/rest/recipe"))
+		  mockMvc.perform(get("/rest/recipe").with(user("user").password("password")))
 		  .andExpect(status().isOk())
 		  .andExpect(jsonPath("$", Matchers.hasSize(1)))
 		  .andExpect(jsonPath("$[0].id", Matchers.is(recTestResponse.getId().intValue())));
@@ -108,7 +109,7 @@ class RecipeControllerTest {
 			  
 			  when(recServTest.getRecipe(id)).thenReturn(recTestResponse);
 			
-			  mockMvc.perform(get("/rest/recipe/1"))
+			  mockMvc.perform(get("/rest/recipe/1").with(user("user").password("password")))
 			  .andExpect(status().isOk())
 			  .andExpect(jsonPath("id", Matchers.is(recTestResponse.getId().intValue())));
 			  
@@ -132,7 +133,7 @@ class RecipeControllerTest {
 		 
 				 
 				 RequestBuilder req= MockMvcRequestBuilders
-						 .post("/rest/addrecipe").contentType(MediaType.APPLICATION_JSON)
+						 .post("/rest/addrecipe").with(user("user").password("password")).contentType(MediaType.APPLICATION_JSON)
 				            .accept(MediaType.APPLICATION_JSON)
 				            .content(this.mapper.writeValueAsString(addRecipe));
 				 
@@ -165,7 +166,8 @@ class RecipeControllerTest {
 	 @Test
 	 @DisplayName("Test DeleteRecipe DELETE service ")
 	 void testDeleteRecipe() throws Exception { 
-		mockMvc.perform(delete("/rest/deleteRecipe/2")).andExpect(status().isOk());
+		mockMvc.perform(delete("/rest/deleteRecipe/2").with(user("user").password("password")))
+		.andExpect(status().isOk());
 		 
 		 
 	 }
@@ -187,7 +189,7 @@ class RecipeControllerTest {
 			 
 					 
 					 RequestBuilder req= MockMvcRequestBuilders
-							 .put("/rest/updaterecipe").contentType(MediaType.APPLICATION_JSON)
+							 .put("/rest/updaterecipe").with(user("user").password("password")).contentType(MediaType.APPLICATION_JSON)
 					            .accept(MediaType.APPLICATION_JSON)
 					            .content(this.mapper.writeValueAsString(addRecipe));
 					 
@@ -200,14 +202,14 @@ class RecipeControllerTest {
 			
 			  List<RecipeDTO> testOutput= new ArrayList<>();
 			  when(recServTest.getAllRecipe()).thenReturn(testOutput);
-			  mockMvc.perform(get("/rest/recipe")) .andExpect(status().isNotFound());
+			  mockMvc.perform(get("/rest/recipe").with(user("user").password("password"))) .andExpect(status().isNotFound());
 			 
 	  }	 	 
 	  
 	  @Test 
 	  @DisplayName("Test GetRecipe with Exception GET service ")
 	  void testGetRecipeNotFound() throws Exception {
-			  mockMvc.perform(get("/rest/recipe/6")) 
+			  mockMvc.perform(get("/rest/recipe/6").with(user("user").password("password"))) 
 			  .andExpect(status().isBadRequest());
 	  }
 			  
@@ -230,7 +232,7 @@ class RecipeControllerTest {
 			 
 					 
 					 RequestBuilder req= MockMvcRequestBuilders
-							 .put("/rest/updaterecipe").contentType(MediaType.APPLICATION_JSON)
+							 .put("/rest/updaterecipe").with(user("user").password("password")).contentType(MediaType.APPLICATION_JSON)
 					            .accept(MediaType.APPLICATION_JSON)
 					            .content(this.mapper.writeValueAsString(addRecipe));
 					 

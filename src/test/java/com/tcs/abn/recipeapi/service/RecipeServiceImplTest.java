@@ -122,7 +122,7 @@ List<RecipeDTO> testOutput= new ArrayList<>();
 			assertEquals(recTestResponse.getRecDate(), actualOut.getRecDate());
 			assertEquals(recTestResponse.getRecCount(), actualOut.getRecCount());
 			assertEquals(recTestResponse.isRecType(), actualOut.isRecType());
-			assertTrue(recTestResponse.getRecIngredients().size()== actualOut.getRecIngredients().size());
+			assertEquals(recTestResponse.getRecIngredients().size(), actualOut.getRecIngredients().size());
 			assertEquals(recTestResponse.getRecInstruction(), actualOut.getRecInstruction());
 	}
 

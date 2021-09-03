@@ -17,10 +17,8 @@ class RecipeApiApplicationTests {
 
 	@Test
 	void contextLoads() {
-		RecipeApiApplication applicationClass=new RecipeApiApplication();
-		 assertThat(applicationClass).isEqualTo(applicationClass); 
-		    assertThat(applicationClass).hasSameHashCodeAs(applicationClass); 
-	}
+		 assertThat(recController).isNotNull(); 	
+		 }
 	
 
 }

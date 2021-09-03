@@ -8,7 +8,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import com.tcs.abn.recipeapi.dto.RecipeDTO;
+
 import com.tcs.abn.recipeapi.entity.Recipe;
 
 @Component

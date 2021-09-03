@@ -174,5 +174,15 @@ List<RecipeDTO> testOutput= new ArrayList<>();
 		verify(recDaoTest,times(1)).deleteRecipe(2L);
 	
 	}
+	
+	@Test
+	@DisplayName("Test GetRecipe response null service ")
+	void testGetRecipeNull() {
+		Long id=5L;
+		   
+			when(recDaoTest.getRecipe(id)).thenReturn(null);
+			assertEquals(null,recServTest.getRecipe(id));
+	}
+
 
 }

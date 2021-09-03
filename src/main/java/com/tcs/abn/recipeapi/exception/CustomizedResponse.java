@@ -14,7 +14,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 @ControllerAdvice
 @RestController
-public class CustomizedResponseException extends ResponseEntityExceptionHandler{
+public class CustomizedResponse extends ResponseEntityExceptionHandler{
 	
 	private LocalDateTime date= LocalDateTime.now();
 	
@@ -23,7 +23,7 @@ public class CustomizedResponseException extends ResponseEntityExceptionHandler{
 		
 		ExceptionResponse excResponse= new ExceptionResponse(date, "Requested recipe does not exists ");
 		
-		 return new ResponseEntity(excResponse, HttpStatus.NOT_FOUND);
+		 return new ResponseEntity<Object>(excResponse, HttpStatus.NOT_FOUND);
 		
 	}
 	
@@ -34,16 +34,9 @@ public class CustomizedResponseException extends ResponseEntityExceptionHandler{
 	  ExceptionResponse excResponse= new
 	  ExceptionResponse(date,"Recipe does not exists for requested action/id");
 	  
-	  return new ResponseEntity(excResponse, HttpStatus.BAD_REQUEST); }
+	  return new ResponseEntity<Object>(excResponse, HttpStatus.BAD_REQUEST); }
 	 
-	 
-	/*
-	 * @ExceptionHandler(DuplicateKeyException.class) public ResponseEntity<Object>
-	 * handleAddRecipeException (DuplicateKeyException e,WebRequest request){ return
-	 * null;
-	 * 
-	 * }
-	 */
+
 	
 
 }

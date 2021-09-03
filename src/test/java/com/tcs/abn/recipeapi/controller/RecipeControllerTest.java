@@ -29,6 +29,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tcs.abn.recipeapi.dto.RecipeDTO;
+import com.tcs.abn.recipeapi.dto.RecipeEntityDTO;
 import com.tcs.abn.recipeapi.entity.Recipe;
 import com.tcs.abn.recipeapi.service.RecipeServiceImpl;
 @ExtendWith(SpringExtension.class)
@@ -119,7 +120,7 @@ class RecipeControllerTest {
 				 DateTimeFormatter.ofPattern("dd-MM-yyyy' 'HH:mm"); LocalDateTime tempDate =
 				 LocalDateTime.parse("26-08-2021 10:14", formatter);
 				  
-				 Recipe addRecipe = new Recipe();
+				 RecipeEntityDTO addRecipe = new RecipeEntityDTO();
 				 
 				 addRecipe.setRecName("Test"); 
 				 addRecipe.setRecDate(tempDate);
@@ -136,30 +137,7 @@ class RecipeControllerTest {
 				 
 				 mockMvc.perform(req).andExpect(status().isCreated());
 	 }
-		/*
-		 * @Test void testAddRecipe() throws Exception {
-		 * 
-		 * DateTimeFormatter formatter =
-		 * DateTimeFormatter.ofPattern("dd-MM-yyyy' 'HH:mm"); LocalDateTime tempDate =
-		 * LocalDateTime.parse("26-08-2021 10:14", formatter);
-		 * 
-		 * Recipe recipeOutput = new Recipe();
-		 * 
-		 * recipeOutput.setRecName("Test"); recipeOutput.setRecDate(tempDate);
-		 * recipeOutput.setRecType(true); recipeOutput.setRecCount(2);
-		 * recipeOutput.setRecIngredients("ingr1,ingr2,ingr3,ing4,ingr5");
-		 * recipeOutput.setRecInstruction("test");
-		 * 
-		 * //RequestBuilder req=
-		 * MockMvcRequestBuilders.post("/rest/addrecipe").accept(MediaType.
-		 * APPLICATION_JSON).content(recipeOutput)
-		 * 
-		 * //s JSONObject postInput= new JSONObject(recipeOutput.toString());
-		 * 
-		 * mockMvc.perform(post("/rest/addrecipe")
-		 * .contentType(MediaType.APPLICATION_JSON) .content(recipeOutput.toString()))
-		 * .andExpect(status().isOk()); }
-		 */
+
 	 @Test
 	 @DisplayName("Test DeleteRecipe DELETE service ")
 	 void testDeleteRecipe() throws Exception { 
@@ -175,7 +153,7 @@ class RecipeControllerTest {
 					 DateTimeFormatter.ofPattern("dd-MM-yyyy' 'HH:mm"); LocalDateTime tempDate =
 					 LocalDateTime.parse("26-08-2021 10:14", formatter);
 					  
-					 Recipe addRecipe = new Recipe();
+					 RecipeEntityDTO addRecipe = new RecipeEntityDTO();
 					 addRecipe.setId(1L);
 					 addRecipe.setRecName("TestUpdate"); 
 					 addRecipe.setRecDate(tempDate);

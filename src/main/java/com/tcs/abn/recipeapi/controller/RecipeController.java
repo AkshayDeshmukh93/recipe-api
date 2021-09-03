@@ -5,6 +5,7 @@ import java.util.NoSuchElementException;
 
 import javax.validation.Valid;
 
+import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tcs.abn.recipeapi.dto.RecipeDTO;
+import com.tcs.abn.recipeapi.dto.RecipeEntityDTO;
 import com.tcs.abn.recipeapi.entity.Recipe;
 import com.tcs.abn.recipeapi.exception.ResourceNoFoundException;
 import com.tcs.abn.recipeapi.service.RecipeServiceInterface;
@@ -69,10 +71,12 @@ public class RecipeController {
 	}
 	
 	@PostMapping("/rest/addrecipe")
-	public ResponseEntity<String> addRecipe (@Valid @RequestBody Recipe recipe){
+	public ResponseEntity<String> addRecipe (@Valid @RequestBody RecipeEntityDTO recipe){
 		log.info("Invoked addRecipe Controller | Post Rest Call");	
-		
-		recService.addRecipe(recipe);
+		 
+		 ModelMapper modelMapper=new ModelMapper();
+		 
+		recService.addRecipe(modelMapper.map(recipe, Recipe.class));
 		 	 
 		return new ResponseEntity<String>(HttpStatus.CREATED);
 		
@@ -92,13 +96,14 @@ public class RecipeController {
 	
 	
 	@PutMapping("/rest/updaterecipe")
-	public ResponseEntity<String> updateRecipe(@RequestBody Recipe recipe) {
+	public ResponseEntity<String> updateRecipe(@RequestBody RecipeEntityDTO recipe) {
 		log.info("Invoked updateRecipe Controller | Put Rest Call");
 		
 		if(recipe.getId()==null) {
 			throw new ResourceNoFoundException("Ricipe id should not be null ");
 		}else {
-			recService.updateRecipe(recipe);
+			ModelMapper modelMapper= new ModelMapper();
+			recService.updateRecipe(modelMapper.map(recipe, Recipe.class));
 			return new ResponseEntity<> (HttpStatus.OK);
 		}
 		

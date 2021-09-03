@@ -116,8 +116,5 @@ public class Recipe {
 		this.recInstruction = recInstruction;
 	}
 
-	public Recipe() {
-		
-	}
-		
+			
 }

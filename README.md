@@ -24,9 +24,10 @@ This project has build up with following frameworks and tools/technology used:
  * Java
  * H2 as in-memory database
  * Junit/Mockito
- * Spring Security framework(This part is in progress)
+ * Spring Security framework for rest api authentication
  * Open-Api(formally known as swagger) for Auto Configuration of API document
  * Springboot validate
+ 
  
 # Getting Started
   ## Prerequisites
@@ -39,8 +40,9 @@ This project has build up with following frameworks and tools/technology used:
     
 	1. Clone Project from https://github.com/AkshayDeshmukh93/recipe-api.git 
 	2. In STS import project as File->Import->Maven->Existing Maven Project->Browse Project->Finish.
-	3. Build project and Run as java application 
-	4. Hit rest service in postman to perform actions
+	3. Maven present in project(No need to configure explicitly )
+	4. Build project and Run as java application 
+	5. Hit rest service in postman to perform actions
 	
   ## Link
    * Code Coverage 
@@ -49,7 +51,5 @@ This project has build up with following frameworks and tools/technology used:
    * Open-Api
    API documention cab be find on link - http://localhost:8090/swagger-ui.html
    
-# RoadMap
-	Spring Security configuration is in progress. Rest API authentication code is commented out and has to be debug as its working for sometime sometimes it's not working.
-  
+
 

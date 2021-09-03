@@ -2,7 +2,6 @@ package com.tcs.abn.recipeapi.dao;
 
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
@@ -33,7 +32,7 @@ public class RecipeDaoImpl implements RecipeDaoInterface {
 	public Recipe getRecipe(Long id) {
 		log.info("Invoked getRecipe RepositoryDao");
 		
-		return recRepository.findById(id).get();
+		return recRepository.findById(id).orElse(null);
 		
 	}
 

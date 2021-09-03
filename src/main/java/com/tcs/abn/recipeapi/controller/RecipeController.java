@@ -52,10 +52,15 @@ public class RecipeController {
 	public ResponseEntity<RecipeDTO> getRecipe(@PathVariable Long id){
 		log.info("Invoked getRecipe Controller | Get Rest Call");	
 		RecipeDTO recipe= recService.getRecipe(id);
-		if(recipe==null)
+		if(recipe!=null) {
+			return new ResponseEntity<>(recipe,HttpStatus.OK); 
+		}else {
 			throw new NoSuchElementException(" Not found");
+		}
+			
+			
 		
-		return new ResponseEntity<>(recipe,HttpStatus.OK); 
+		
 			
 	}
 	

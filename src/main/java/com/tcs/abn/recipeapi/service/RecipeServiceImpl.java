@@ -52,17 +52,22 @@ public class RecipeServiceImpl implements RecipeServiceInterface {
 		log.info("Invoked getRecipe service");	
 		Recipe recipe = recDao.getRecipe(id);
 		RecipeDTO recResponse= new RecipeDTO();
+		if(recipe!=null) {
+			recResponse.setId(recipe.getId());
+			recResponse.setRecName(recipe.getRecName());
+			recResponse.setRecDate(recipe.getRecDate());
+			recResponse.setRecType(recipe.isRecType());
+			recResponse.setRecCount(recipe.getRecCount());
+			recResponse.setRecInstruction(recipe.getRecInstruction());
+			List<String> ingList = Stream.of(recipe.getRecIngredients().split(",", -1)).collect(Collectors.toList());
+			recResponse.setRecIngredients(ingList);
+					
+			return recResponse;
+		}else {
+			recResponse=null;
+					return recResponse;
+		}
 		
-		recResponse.setId(recipe.getId());
-		recResponse.setRecName(recipe.getRecName());
-		recResponse.setRecDate(recipe.getRecDate());
-		recResponse.setRecType(recipe.isRecType());
-		recResponse.setRecCount(recipe.getRecCount());
-		recResponse.setRecInstruction(recipe.getRecInstruction());
-		List<String> ingList = Stream.of(recipe.getRecIngredients().split(",", -1)).collect(Collectors.toList());
-		recResponse.setRecIngredients(ingList);
-				
-		return recResponse;
 	}
 
 

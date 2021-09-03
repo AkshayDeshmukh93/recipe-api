@@ -1,6 +1,5 @@
 package com.tcs.abn.recipeapi.controller;
 
-import java.net.URI;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.tcs.abn.recipeapi.dto.RecipeDTO;
 import com.tcs.abn.recipeapi.entity.Recipe;
@@ -39,10 +37,16 @@ public class RecipeController {
 		log.info("Invoked getAllRecipe Controller | Get Rest Call");
 		List<RecipeDTO> recList=recService.getAllRecipe();
 		
-		  if(recList.isEmpty() ||recList==null) throw new
-		  ResourceNoFoundException("Recipe Not Exists");
+		  if(!(recList.isEmpty() ||recList==null)) {
+			  return new ResponseEntity<>(recList,HttpStatus.OK);
+		  }else {
+			  throw new	  ResourceNoFoundException("Recipe Not Exists");
+			  
+		  }
+			  
+			
 		 
-		return new ResponseEntity<>(recList,HttpStatus.OK);
+		
 		
 		
 	}

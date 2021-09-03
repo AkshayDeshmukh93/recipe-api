@@ -5,10 +5,7 @@ import java.util.List;
 
 public class RecipeDTO {
 
-	public RecipeDTO() {
-		
-	}
-	
+
 	private Long id;
 	private String recName;
 	private LocalDateTime recDate;
